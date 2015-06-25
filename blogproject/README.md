@@ -14,3 +14,7 @@ Para contribuir, por favor, faça o seguinte.
 * Adicione o que deseja
 * Faça o push para seu repositório `git push origin minha_alteracao`
 * [Envie um Pull Request](https://help.github.com/articles/using-pull-requests/)
+
+## Licença [MIT](http://opensource.org/licenses/MIT)
+
+Todo conteúdo segue a licença MIT
