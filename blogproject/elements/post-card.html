@@ -1,0 +1,42 @@
+<dom-module id="post-card">
+
+  <style>
+.card-title {
+      margin-left: 10px;
+    }
+
+    .card-author {
+      margin-left: 10px;
+    }
+    
+    .card-post {
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  
+  </style>
+  
+  <template>
+    <paper-material elevation="1">
+  <div class="card-title ">
+        <content select="h2"></content>
+      </div>
+      <div class="card-author ">
+        <content select="h3"></content>
+      </div>
+      <div class="card-post">
+       <content></content>
+      </div>
+
+     </paper-material>
+  </template>
+
+  <script>
+    //registro do elemento
+    Polymer({
+      is: "post-card"
+
+    });
+  </script>
+
+</dom-module>
