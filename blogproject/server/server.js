@@ -19,7 +19,7 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.urlencoded());
   app.use(express.json());
-
+ 
   app.use('/secured', authenticate);
   app.use(cors());
 
@@ -28,11 +28,11 @@ app.configure(function () {
 
 
 app.get('/ping', function(req, res) {
-  res.send(200, {text: "Resposta OK de método desprotegido!"});
+  res.send(200, {text: "Resposta OK de mï¿½todo desprotegido!"});
 });
 
 app.get('/secured/ping', function(req, res) {
-  res.send(200, {text: "Resposta OK de método protegido, você está autenticado!"});
+  res.send(200, {text: "Resposta OK de mï¿½todo protegido, vocï¿½ estï¿½ autenticado!"});
 })
 
 var port = process.env.PORT || 3001;
