@@ -2,15 +2,24 @@
   "name": "Polymer Blog",
   "version": "0.0.0",
   "authors": [
-    "beneditobatista <benedito_batista@hotmail.com>"
+    "beneditobatista <benedito_batista@hotmail.com>",
+    "fernandorych <fernando.rych@gmail.com>"
   ],
-  "description": "Primeira parte do projeto",
+  "description": "Esqueleto do Projeto",
   "main": "index.html",
   "keywords": [
     "blog",
     "html5",
+    "studyGroup",
+    "GDG",
+    "GDGSP",
     "polymer",
-    "firebase"
+    "firebase",
+    "AngularJS",
+    "Auth0",
+    "Lavish",
+    "Bootstrap",
+    "font-awesome"
   ],
   "license": "MIT",
   "ignore": [
