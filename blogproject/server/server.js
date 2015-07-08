@@ -28,15 +28,15 @@ app.configure(function () {
 
 
 app.get('/ping', function(req, res) {
-  res.send(200, {text: "All good. You don't need to be authenticated to call this"});
+  res.send(200, {text: "Resposta OK de método desprotegido!"});
 });
 
 app.get('/secured/ping', function(req, res) {
-  res.send(200, {text: "All good. You only get this message if you're authenticated"});
+  res.send(200, {text: "Resposta OK de método protegido, você está autenticado!"});
 })
 
 var port = process.env.PORT || 3001;
 
 http.createServer(app).listen(port, function (err) {
-  console.log('listening in http://localhost:' + port);
+  console.log('Server iniciado em http://localhost:' + port);
 });
