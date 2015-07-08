@@ -1,9 +1,12 @@
+<link rel="import" href="../bower_components/firebase-element/firebase-collection.html">
+<link rel="import" href="post-card.html">
+
 <dom-module id="post-list">
   <style>
   </style>
   <template>
     <firebase-collection data="{{data}}"
-                      location="https://html5-blog.firebaseio.com/">
+                      location="https://html5-blog.firebaseio.com/" order-by-child="title">
     </firebase-collection>
 
     <template is="dom-repeat" items="{{data}}">

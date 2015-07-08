@@ -18,21 +18,15 @@ paper-toolbar {
   margin-bottom: 1.5em;
 }
 
-  paper-material {
-    border-radius: 2px;
-    height: 100%;
-    padding: 16px 0 16px 0;
-    width: calc(98.66% - 16px);
-    margin: 16px auto;
-    background: white;
-  }
+
 #mainToolbar .middle {
-    margin-left: 48px;
-  }
+ margin-left: 48px;
+}
 
 #mainToolbar.has-shadow .middle {
-    font-size: 20px;
-    padding-bottom: 0;
-    margin-left: 48px;
-  }
+  font-size: 20px;
+  padding-bottom: 0;
+  margin-left: 48px;
+}
   
+

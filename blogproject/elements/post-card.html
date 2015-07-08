@@ -1,7 +1,7 @@
 <dom-module id="post-card">
 
   <style>
-.card-title {
+    .card-title {
       margin-left: 10px;
     }
 
@@ -13,12 +13,21 @@
       margin-left: 10px;
       font-size: 14px;
     }
+    
+    paper-material {
+      border-radius: 2px;
+      height: 100%;
+      padding: 16px 0 16px 0;
+      width: calc(98.66% - 16px);
+      margin: 16px auto;
+      background: white;
+    }
   
   </style>
   
   <template>
     <paper-material elevation="1">
-  <div class="card-title ">
+      <div class="card-title ">
         <content select="h2"></content>
       </div>
       <div class="card-author ">
