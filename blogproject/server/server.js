@@ -19,7 +19,7 @@ app.configure(function () {
   app.use(express.bodyParser());
   app.use(express.urlencoded());
   app.use(express.json());
-
+ 
   app.use('/secured', authenticate);
   app.use(cors());
 
@@ -28,15 +28,15 @@ app.configure(function () {
 
 
 app.get('/ping', function(req, res) {
-  res.send(200, {text: "All good. You don't need to be authenticated to call this"});
+  res.send(200, {text: "Resposta OK de m�todo desprotegido!"});
 });
 
 app.get('/secured/ping', function(req, res) {
-  res.send(200, {text: "All good. You only get this message if you're authenticated"});
+  res.send(200, {text: "Resposta OK de m�todo protegido, voc� est� autenticado!"});
 })
 
 var port = process.env.PORT || 3001;
 
 http.createServer(app).listen(port, function (err) {
-  console.log('listening in http://localhost:' + port);
+  console.log('Server iniciado em http://localhost:' + port);
 });
