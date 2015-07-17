@@ -13,5 +13,11 @@
   },
   "engines": {
     "node": "0.10.x"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.7.13",
+    "gulp": "^3.9.0",
+    "proxy-middleware": "^0.13.0",
+    "url": "^0.10.3"
   }
 }

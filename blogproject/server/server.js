@@ -35,7 +35,7 @@ app.get('/secured/ping', function(req, res) {
   res.send(200, {text: "Resposta OK de método protegido, você está autenticado!"});
 })
 
-var port = process.env.PORT || 3001;
+var port = process.env.PORT || 4001;
 
 http.createServer(app).listen(port, function (err) {
   console.log('Server iniciado em http://localhost:' + port);
