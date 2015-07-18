@@ -1,76 +1,92 @@
-angular.module('polymerblog', [
-		'auth0',
-		'ngRoute',
-		'polymerblog.home',
-		'polymerblog.login',
-		'polymerblog.posts',
-		'angular-storage',
-		'angular-jwt'
-	])
-	.config(polymerBlogConfig)
-	.run(polymerBlogRun)
-	.controller('AppCtrl', AppCtrl);
+(function() {
+	'use strict';
 
-function polymerBlogConfig($routeProvider, authProvider, $httpProvider, $locationProvider, jwtInterceptorProvider) {
-	$routeProvider
-		.when('/', {
-			controller: 'HomeCtrl',
-			templateUrl: 'home/home.html',
-			pageTitle: 'Homepage',
-			requiresLogin: true
-		})
-		.when('/posts', {
-			controller: 'PostsCtrl',
-			templateUrl: 'posts/posts.html',
-			pageTitle: 'Posts',
-			requiresLogin: true
-		})
-		.when('/login', {
-			controller: 'LoginCtrl',
-			templateUrl: 'login/login.html',
-			pageTitle: 'Login'
-		})
-		.otherwise({
-			redirectTo: '/'
+	angular.module('polymerblog', [
+			'auth0',
+			'ui.router',
+			'polymerblog.home',
+			'polymerblog.login',
+			'polymerblog.posts',
+			'angular-storage',
+			'angular-jwt'
+		])
+		.config(polymerBlogConfig)
+		.run(polymerBlogRun)
+		.controller('AppCtrl', AppCtrl);
+
+	function polymerBlogConfig($stateProvider, $urlRouterProvider, authProvider, $httpProvider, jwtInterceptorProvider) {
+
+		$urlRouterProvider.otherwise('/');
+
+		$stateProvider
+			.state('home', {
+				url: '/',
+				templateUrl: 'home/home.html',
+				controller: 'HomeCtrl',
+				controllerAs: 'home',
+				data: {
+					pageTitle: 'Homepage',
+					requiresLogin: true
+				}
+			})
+			.state('posts', {
+				url: '/posts',
+				templateUrl: 'posts/posts.html',
+				controller: 'PostsCtrl',
+				controllerAs: 'posts',
+				data: {
+					pageTitle: 'Posts',
+					requiresLogin: true
+				}
+			})
+			.state('login', {
+				url: '/login',
+				templateUrl: 'login/login.html',
+				controller: 'LoginCtrl',
+				controllerAs: 'login',
+				data: {
+					pageTitle: 'Login',
+					requiresLogin: true
+				}
+			});
+
+		authProvider.init({
+			domain: AUTH0_DOMAIN,
+			clientID: AUTH0_CLIENT_ID,
+			loginUrl: '/login'
 		});
 
+		jwtInterceptorProvider.tokenGetter = function(store) {
+			return store.get('token');
+		}
 
-	authProvider.init({
-		domain: AUTH0_DOMAIN,
-		clientID: AUTH0_CLIENT_ID,
-		loginUrl: '/login'
-	});
-
-	jwtInterceptorProvider.tokenGetter = function(store) {
-		return store.get('token');
+		// Add a simple interceptor that will fetch all requests and add the jwt token to its authorization header.
+		// NOTE: in case you are calling APIs which expect a token signed with a different secret, you might
+		// want to check the delegation-token example
+		$httpProvider.interceptors.push('jwtInterceptor');
 	}
 
-	// Add a simple interceptor that will fetch all requests and add the jwt token to its authorization header.
-	// NOTE: in case you are calling APIs which expect a token signed with a different secret, you might
-	// want to check the delegation-token example
-	$httpProvider.interceptors.push('jwtInterceptor');
-}
-
-function polymerBlogRun($rootScope, auth, store, jwtHelper, $location) {
-	$rootScope.$on('$locationChangeStart', function() {
-		if (!auth.isAuthenticated) {
-			var token = store.get('token');
-			if (token) {
-				if (!jwtHelper.isTokenExpired(token)) {
-					auth.authenticate(store.get('profile'), token);
-				} else {
-					$location.path('/login');
+	function polymerBlogRun($rootScope, auth, store, jwtHelper, $location) {
+		$rootScope.$on('$locationChangeStart', function() {
+			if (!auth.isAuthenticated) {
+				var token = store.get('token');
+				if (token) {
+					if (!jwtHelper.isTokenExpired(token)) {
+						auth.authenticate(store.get('profile'), token);
+					} else {
+						$location.path('/login');
+					}
 				}
 			}
-		}
 
-	});
-}
+		});
+	}
 
-function AppCtrl($scope, $location) {
-	$scope.$on('$routeChangeSuccess', function(e, nextRoute) {
-		if (nextRoute.$$route && angular.isDefined(nextRoute.$$route.pageTitle)) {
-			$scope.pageTitle = nextRoute.$$route.pageTitle + ' | Auth0 Sample';
-		}
-	});
-}
+	function AppCtrl($scope, $location) {
+		$scope.$on('$routeChangeSuccess', function(e, nextRoute) {
+			if (nextRoute.$$route && angular.isDefined(nextRoute.$$route.pageTitle)) {
+				$scope.pageTitle = nextRoute.$$route.pageTitle + ' | Auth0 Sample';
+			}
+		});
+	}
+}());

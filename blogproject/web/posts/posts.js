@@ -1,15 +1,19 @@
-angular.module( 'polymerblog.posts', [
-'auth0'
-])
-.controller( 'PostsCtrl', function PostsController( $scope, auth, $http, $location, store ) {
+(function() {
+	'use strict';
 
-  $scope.auth = auth;
+	angular.module('polymerblog.posts', ['auth0']).controller('PostsCtrl', PostsController);
 
-  $scope.logout = function() {
-    auth.signout();
-    store.remove('profile');
-    store.remove('token');
-    $location.path('/login');
-  }
+	function PostsController(auth, $http, $state, store) {
 
-});
+		var vm = this;
+		vm.auth = auth;
+		vm.logout = logout;
+
+		function logout() {
+			auth.signout();
+			store.remove('profile');
+			store.remove('token');
+			$state.go('login');
+		}
+	}
+}());

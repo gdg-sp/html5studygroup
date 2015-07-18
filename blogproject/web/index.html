@@ -32,9 +32,11 @@
 	<!-- CORE DO ANGULARJS E AUTH0 -->
 	<script type="text/javascript" src="core/auth0-variables.js"></script>
 	<script type="text/javascript" src="https://cdn.auth0.com/js/lock-7.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular-cookies.js"></script>
-	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.17/angular-route.js"></script>
+
+	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
+	<script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
+	<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+
 	<script type="text/javascript" src="https://cdn.auth0.com/w2/auth0-angular-4.js"></script>
 	<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
 	<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
@@ -52,7 +54,7 @@
 		  <paper-icon-button icon="menu"></paper-icon-button>
 		  <div class="middle paper-font-display2 ">Polymer HTML5 Blog</div>
 		 </paper-toolbar> 
-		<div class="container" ng-view></div>
+		<div class="container" ui-view></div>
 	 </paper-header-panel>
   </body>
 </html>

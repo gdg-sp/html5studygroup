@@ -30,12 +30,11 @@ var browserSync = require('browser-sync').create();
 var proxy = require('proxy-middleware');
 
 /* Configurando TASKS */
-
 var src = 'web/**/*';
 
 gulp.task('server', function() {
 	var proxyOptions = url.parse('http://localhost:4001');
-	proxyOptions.route = '/ping';
+	proxyOptions.route = '/secured/ping';
 
 	browserSync.init({
 		server: {
