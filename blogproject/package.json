@@ -1,5 +1,5 @@
 {
-  "name": "server-html-study-group",
+  "name": "server-html5-study-group",
   "version": "0.0.1",
   "description": "HTML5 Study Group",
   "repository": "git@github.com:gdg-sp/html5studygroup.git",
@@ -19,6 +19,7 @@
   "devDependencies": {
     "browser-sync": "^2.7.13",
     "gulp": "^3.9.0",
+    "gulp-jshint": "^1.11.2",
     "jasmine-core": "^2.3.4",
     "jshint-stylish": "^2.0.1",
     "karma": "^0.13.2",
