@@ -15,6 +15,15 @@ var gulp = require('gulp');
 var url = require('url');
 
 /**
+ * Javacript
+ *
+ * gulp-jshint
+ * Este é JSHint, uma ferramenta que ajuda a detectar erros e potenciais problemas no seu código JavaScript.
+ * https://github.com/spalger/gulp-jshint
+ */
+var jshint = require('gulp-jshint');
+
+/**
  * borser-sync
  * Browsersync faz seu ajustes e testa mais rápido sincronizando alterações de arquivos e interações entre vários 
  * dispositivos.
@@ -25,14 +34,35 @@ var url = require('url');
  * resposta para além do que é necessário para a autenticação e identificação do proxy". O proxy-middleware permite 
  * quaisquer solicitação de opções sendo permitidos em HTTP ou HTTPS.
  * https://github.com/andrewrk/node-proxy-middleware
+ *
+ * karma
+ * Uma ferramenta simples que lhe permite testar código JavaScript em vários navegadores reais. https://github.com/karma-runner/karma
  */
 var browserSync = require('browser-sync').create();
 var proxy = require('proxy-middleware');
+var karma = require('karma').Server;
 
 /* Configurando TASKS */
-var src = 'web/**/*';
+var src = {
+	reload: 'web/**/*',
+	scripts: 'web/modules/**/*.js'
+};
 
-gulp.task('server', function() {
+gulp.task('test', function (done) {
+	new karma({
+		configFile: __dirname + '/karma.conf.js'
+	}, function () {
+		done();
+	}).start();
+});
+
+gulp.task('jshint', function () {
+	return gulp.src(src.scripts)
+		.pipe(jshint('.jshintrc'))
+		.pipe(jshint.reporter('jshint-stylish'));
+});
+
+gulp.task('server', ['jshint'], function() {
 	var proxyOptions = url.parse('http://localhost:4001');
 	proxyOptions.route = '/secured/ping';
 
@@ -43,7 +73,8 @@ gulp.task('server', function() {
 		}
 	});
 
-	gulp.watch(src).on('change', browserSync.reload);
+	gulp.watch(src.reload, ['jshint']).on('change', browserSync.reload);
+	gulp.watch(src.scripts, ['test']).on('change', browserSync.reload);
 });
 
 gulp.task('default', function() {

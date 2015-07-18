@@ -19,6 +19,15 @@
   "devDependencies": {
     "browser-sync": "^2.7.13",
     "gulp": "^3.9.0",
+    "jasmine-core": "^2.3.4",
+    "jshint-stylish": "^2.0.1",
+    "karma": "^0.13.2",
+    "karma-chrome-launcher": "^0.2.0",
+    "karma-jasmine": "^0.3.6",
+    "karma-mocha-reporter": "^1.0.2",
+    "karma-ng-html2js-preprocessor": "^0.1.2",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "phantomjs": "^1.9.17",
     "proxy-middleware": "^0.13.0",
     "url": "^0.10.3"
   }

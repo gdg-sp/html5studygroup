@@ -18,7 +18,7 @@
 			}).then(function() {
 				alert("Sucesso ao consultar o server Node.js");
 			}, function(response) {
-				if (response.status == 0) {
+				if (response.status === 0) {
 					alert("Erro ao consultar o server, você está logado? O Server foi iniciado?");
 				} else {
 					alert(response.data);

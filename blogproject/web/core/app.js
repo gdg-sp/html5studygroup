@@ -21,7 +21,7 @@
 		$stateProvider
 			.state('home', {
 				url: '/',
-				templateUrl: 'home/home.html',
+				templateUrl: 'modules/home/home.html',
 				controller: 'HomeCtrl',
 				controllerAs: 'home',
 				data: {
@@ -31,7 +31,7 @@
 			})
 			.state('posts', {
 				url: '/posts',
-				templateUrl: 'posts/posts.html',
+				templateUrl: 'modules/posts/posts.html',
 				controller: 'PostsCtrl',
 				controllerAs: 'posts',
 				data: {
@@ -41,7 +41,7 @@
 			})
 			.state('login', {
 				url: '/login',
-				templateUrl: 'login/login.html',
+				templateUrl: 'modules/login/login.html',
 				controller: 'LoginCtrl',
 				controllerAs: 'login',
 				data: {
