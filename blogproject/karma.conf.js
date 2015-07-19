@@ -19,6 +19,7 @@ module.exports = function (config) {
 			'https://cdn.auth0.com/js/lock-7.js',
 			'web/bower_components/lodash/lodash.js',
 			'web/bower_components/angular/angular.js',
+			'web/bower_components/restangular/dist/restangular.js',
 			'web/bower_components/angular-cookies/angular-cookies.js',
 			'web/bower_components/angular-ui-router/release/angular-ui-router.js',
 			'https://cdn.auth0.com/w2/auth0-angular-4.js',
