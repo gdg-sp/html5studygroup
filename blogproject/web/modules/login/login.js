@@ -3,6 +3,8 @@
 
 	angular.module('polymerblog.login', ['auth0']).controller('LoginCtrl', LoginController);
 
+	LoginController.$inject = ['auth', '$state', 'store'];
+
 	function LoginController(auth, $state, store) {
 
 		var vm = this;

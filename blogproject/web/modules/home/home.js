@@ -3,6 +3,8 @@
 
 	angular.module('polymerblog.home', ['auth0']).controller('HomeCtrl', HomeController);
 
+	HomeController.$inject = ['auth', '$http', '$state', 'store'];
+
 	function HomeController(auth, $http, $state, store) {
 
 		var vm = this;

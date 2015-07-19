@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="polymerblog" ng-controller="AppCtrl">
-  <head>
+<head>
 	<title ng-bind="pageTitle"></title>
 
-	<script type="text/javascript" src="//use.typekit.net/iws6ohy.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-	<script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+	<script type="text/javascript" src="http://use.typekit.net/iws6ohy.js"></script>
+	<script type="text/javascript">
+		try {
+			Typekit.load();
+		} catch (e) {}
+	</script>
+	<script type="text/javascript" src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
 
 	<!-- ELEMENTOS POLYMER -->
 	<link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
@@ -15,46 +19,48 @@
 	<link rel="import" href="bower_components/paper-material/paper-material.html">
 	<link rel="import" href="elements/post-card.html">
 	<link rel="import" href="elements/post-list.html">
-	
+
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
 
 	<!-- FONT AWESOME -->
 	<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
-	
+
 	<!-- ESTILOS DA APLICAÇÃO -->
 	<link rel="stylesheet" type="text/css" href="modules/home/home.css">
 	<link rel="stylesheet" type="text/css" href="modules/login/login.css">
 	<link rel="stylesheet" type="text/css" href="modules/posts/posts.css">
 	<link rel="stylesheet" type="text/css" href="content/css/lavish.css">
 	<link rel="stylesheet" type="text/css" href="content/css/polymerblog.css">
+</head>
+
+<body class="fullbleed layout vertical">
+	<paper-header-panel mode="waterfall-tall">
+		<paper-toolbar id="mainToolbar">
+			<paper-icon-button icon="menu"></paper-icon-button>
+			<div class="middle paper-font-display2 ">Polymer HTML5 Blog</div>
+		</paper-toolbar>
+		<div class="container" ui-view></div>
+	</paper-header-panel>
 
 	<!-- CORE DO ANGULARJS E AUTH0 -->
 	<script type="text/javascript" src="core/auth0-variables.js"></script>
 	<script type="text/javascript" src="https://cdn.auth0.com/js/lock-7.js"></script>
+	<script type="text/javascript" src="bower_components/lodash/lodash.js"></script>
 
 	<script type="text/javascript" src="bower_components/angular/angular.js"></script>
 	<script type="text/javascript" src="bower_components/angular-cookies/angular-cookies.js"></script>
 	<script type="text/javascript" src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script type="text/javascript" src="bower_components/restangular/dist/restangular.js"></script>
 
 	<script type="text/javascript" src="https://cdn.auth0.com/w2/auth0-angular-4.js"></script>
 	<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js"></script>
 	<script type="text/javascript" src="//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js"></script>
-	
+
 	<!-- CONTROLLERS DO ANGULARJS -->
 	<script type="text/javascript" src="core/app.js"></script>
 	<script type="text/javascript" src="modules/home/home.js"></script>
 	<script type="text/javascript" src="modules/posts/posts.js"></script>
 	<script type="text/javascript" src="modules/login/login.js"></script>
-  </head>
-  
-  <body class="fullbleed layout vertical">
-	<paper-header-panel mode="waterfall-tall">
-		<paper-toolbar id="mainToolbar">
-		  <paper-icon-button icon="menu"></paper-icon-button>
-		  <div class="middle paper-font-display2 ">Polymer HTML5 Blog</div>
-		 </paper-toolbar> 
-		<div class="container" ui-view></div>
-	 </paper-header-panel>
-  </body>
+</body>
 </html>

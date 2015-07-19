@@ -3,7 +3,9 @@
 
 	angular.module('polymerblog.posts', ['auth0']).controller('PostsCtrl', PostsController);
 
-	function PostsController(auth, $http, $state, store) {
+	PostsController.$inject = ['auth', '$state', 'store'];
+
+	function PostsController(auth, $state, store) {
 
 		var vm = this;
 		vm.auth = auth;
