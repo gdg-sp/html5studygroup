@@ -36,6 +36,7 @@
     "paper-header-panel": "PolymerElements/paper-header-panel#1.0.0",
     "firebase-element": "GoogleWebComponents/firebase-element#1.0.0",
     "angular-ui-router": "~0.2.15",
-    "angular-cookies": "~1.4.3"
+    "angular-cookies": "~1.4.3",
+    "restangular": "~1.5.1"
   }
 }
