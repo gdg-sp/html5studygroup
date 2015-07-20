@@ -11,6 +11,7 @@ Para contribuir, por favor, faça o seguinte.
 * Adicione o repositório oficial como upstream para facilitar o desenvolvimento <br /> `git remote add upstream https://github.com/gdg-sp/html5studygroup`
 * Faça um update do repositório oficial `git pull upstream master`
 * Crie um branch que conterá sua alteração: `git checkout -b minha_alteracao`
+* Para rodar o projeto vá no terminal e digite `npm install && bower install` depois vá na pasta `server` rode o comando `node server.js` em seguida em uma outra aba/ou session do termianl dentro da pasta `blogproject` digite `gulp server`
 * Adicione o que deseja
 * Faça o push para seu repositório `git push origin minha_alteracao`
 * [Envie um Pull Request](https://help.github.com/articles/using-pull-requests/)
