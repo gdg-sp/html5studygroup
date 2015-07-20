@@ -23,11 +23,11 @@ module.exports = function (config) {
 			'web/bower_components/angular-cookies/angular-cookies.js',
 			'web/bower_components/angular-ui-router/release/angular-ui-router.js',
 			'https://cdn.auth0.com/w2/auth0-angular-4.js',
-			'//cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js',
-			'//cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js',
+			'http://cdn.rawgit.com/auth0/angular-storage/master/dist/angular-storage.js',
+			'http://cdn.rawgit.com/auth0/angular-jwt/master/dist/angular-jwt.js',
 			// application
-			'web/core/app.js',
-			'web/core/auth0-variables.js',
+			'web/modules/core/app.js',
+			'web/modules/core/auth0-variables.js',
 			// partials
 			'web/**/*.html',
 			// tests

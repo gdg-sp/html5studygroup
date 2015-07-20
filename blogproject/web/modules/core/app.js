@@ -3,28 +3,28 @@
 
     angular.module('polymerblog', [
         'auth0',
+        'angular-storage',
+        'angular-jwt',
         'ui.router',
         'restangular',
         'polymerblog.home',
         'polymerblog.login',
-        'polymerblog.posts',
-        'angular-storage',
-        'angular-jwt'
+        'polymerblog.posts'
     ])
         .config(polymerBlogConfig)
         .run(polymerBlogRun)
         .controller('AppCtrl', AppCtrl);
 
     polymerBlogConfig.$inject = [
+        'authProvider',
         '$stateProvider',
         '$urlRouterProvider',
-        'authProvider',
         'jwtInterceptorProvider',
         'RestangularProvider',
         '$httpProvider'
     ];
 
-    function polymerBlogConfig($stateProvider, $urlRouterProvider, authProvider, jwtInterceptorProvider, RestangularProvider, $httpProvider) {
+    function polymerBlogConfig(authProvider, $stateProvider, $urlRouterProvider, jwtInterceptorProvider, RestangularProvider, $httpProvider) {
 
         $urlRouterProvider.otherwise('/');
         RestangularProvider.setBaseUrl('/service');
@@ -78,14 +78,14 @@
     }
 
     polymerBlogRun.$inject = [
-        '$rootScope',
         'auth',
         'store',
         'jwtHelper',
+        '$rootScope',
         '$state'
     ];
 
-    function polymerBlogRun($rootScope, auth, store, jwtHelper, $state) {
+    function polymerBlogRun(auth, store, jwtHelper, $rootScope, $state) {
         $rootScope.$on('$locationChangeStart', function () {
             if (!auth.isAuthenticated) {
                 var token = store.get('token');
@@ -97,7 +97,6 @@
                     }
                 }
             }
-
         });
     }
 
