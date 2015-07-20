@@ -63,8 +63,8 @@ gulp.task('jshint', function () {
 });
 
 gulp.task('server', ['jshint'], function() {
-	var proxyOptions = url.parse('http://localhost:4001');
-	proxyOptions.route = '/secured/ping';
+	var proxyOptions = url.parse('http://localhost:4001/api');
+	proxyOptions.route = '/api';
 
 	browserSync.init({
 		server: {

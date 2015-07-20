@@ -7,6 +7,11 @@ var jwt = require('express-jwt');
 var cors = require('cors');
 var dotenv = require('dotenv');
 
+var posts = express.Router();
+
+var Firebase = require('firebase');
+var myFirebaseRef = new Firebase('https://html5-blog.firebaseio.com/');
+
 dotenv.load();
 
 var authenticate = jwt({
@@ -41,6 +46,24 @@ app.get('/secured/ping', function(req, res) {
 });
 
 app.use('/secured', authenticate);
+
+app.get('/api', function (req, res) {
+    res.status(200).json({
+        '/api': [
+            '/posts'
+        ]
+    })
+});
+
+posts.get('/posts', function (req, res) {
+    myFirebaseRef.on('value', function(snapshot) {
+        res.status(200).json(snapshot.val());
+    }, function (errorObject) {
+        res.send('The read failed: ' + errorObject.code);
+    });
+});
+
+app.use('/api', posts);
 
 app.listen(port);
 
