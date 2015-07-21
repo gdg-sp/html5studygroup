@@ -1,59 +1,59 @@
 <!DOCTYPE html>
 <html ng-app="polymerblog" ng-controller="AppCtrl">
-  <head>
-    <title ng-bind="pageTitle"></title>
 
-    <script type="text/javascript" src="//use.typekit.net/iws6ohy.js"></script>
-    <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
-    <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+<head>
+  <title ng-bind="pageTitle"></title>
+  <script type="text/javascript" src="//use.typekit.net/iws6ohy.js"></script>
+  <script type="text/javascript">
+  try {
+    Typekit.load();
+  } catch (e) {}
+  </script>
+  <script src="bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <!-- ELEMENTOS POLYMER -->
+  <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="elements/post-card.html">
+  <link rel="import" href="elements/post-list.html">
+  <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
+  <link rel="import" href="bower_components/paper-styles/paper-styles-classes.html">
+  <link rel="import" href="bower_components/firebase-element/firebase-collection.html">
+  <link rel="import" href="bower_components/paper-material/paper-material.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- FONT AWESOME -->
+  <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+  <!-- ESTILOS DA APLICAÇÃO -->
+  <link rel="stylesheet" type="text/css" href="home/home.css">
+  <link rel="stylesheet" type="text/css" href="login/login.css">
+  <link rel="stylesheet" type="text/css" href="posts/posts.css">
+  <link rel="stylesheet" type="text/css" href="content/css/lavish.css">
+  <link rel="stylesheet" type="text/css" href="content/css/polymerblog.css">
+  <!-- CORE DO ANGULARJS E AUTH0 -->
+  <script src="core/auth0-variables.js"></script>
+  <script src="bower_components/angular/angular.min.js"></script>
+  <script src="bower_components/auth0-lock/build/auth0-lock.min.js"></script>
+  <script src="bower_components/auth0-angular/build/auth0-angular.min.js"></script>
+  <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
+  <script src="bower_components/angular-route/angular-route.min.js"></script>
+  <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js">
+  </script>
+  <script src="bower_components/angular-jwt/dist/angular-jwt.min.js">
+  </script>
+  <!-- CONTROLLERS DO ANGULARJS -->
+  <script type="text/javascript" src="core/app.js"></script>
+  <script type="text/javascript" src="home/home.js"></script>
+  <script type="text/javascript" src="posts/posts.js"></script>
+  <script type="text/javascript" src="login/login.js"></script>
+</head>
 
-    <!-- ELEMENTOS POLYMER -->
-    <link rel="import" href="bower_components/paper-toolbar/paper-toolbar.html">
-    <link rel="import" href="elements/post-card.html">
-    <link rel="import" href="elements/post-list.html">
-    <link rel="import" href="bower_components/paper-header-panel/paper-header-panel.html">
-    <link rel="import" href="bower_components/paper-styles/paper-styles-classes.html">
-    <link rel="import" href="bower_components/firebase-element/firebase-collection.html">
-    <link rel="import" href="bower_components/paper-material/paper-material.html">
-    
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<body class="fullbleed layout vertical">
+  <paper-header-panel mode="waterfall-tall">
+    <paper-toolbar id="mainToolbar">
+      <paper-icon-button icon="menu"></paper-icon-button>
+      <div class="middle paper-font-display2 ">Polymer HTML5 Blog</div>
+    </paper-toolbar>
+    <div class="container" ng-view></div>
+  </paper-header-panel>
+</body>
 
-    <!-- FONT AWESOME -->
-    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    
-    <!-- ESTILOS DA APLICAÇÃO -->
-    
-    <link rel="stylesheet" type="text/css" href="home/home.css">
-    <link rel="stylesheet" type="text/css" href="login/login.css">
-    <link rel="stylesheet" type="text/css" href="posts/posts.css">
-    <link rel="stylesheet" type="text/css" href="content/css/lavish.css">
-    <link rel="stylesheet" type="text/css" href="content/css/polymerblog.css">
-
-    <!-- CORE DO ANGULARJS E AUTH0 -->
-    <script src="core/auth0-variables.js"></script>
-    <script src="bower_components/angular/angular.min.js"></script>
-    <script src="bower_components/auth0-lock/build/auth0-lock.min.js"></script>
-    <script src="bower_components/auth0-angular/build/auth0-angular.min.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.min.js"></script>
-    <script src="bower_components/angular-route/angular-route.min.js"></script>
-    <script src="bower_components/a0-angular-storage/dist/angular-storage.min.js"> </script>
-    <script src="bower_components/angular-jwt/dist/angular-jwt.min.js"> </script>
-    
-    <!-- CONTROLLERS DO ANGULARJS -->
-    <script type="text/javascript" src="core/app.js"></script>
-    <script type="text/javascript" src="home/home.js"></script>
-    <script type="text/javascript" src="posts/posts.js"></script>
-    <script type="text/javascript" src="login/login.js"></script>
-  </head>
-  
-  <body class="fullbleed layout vertical">
-    <paper-header-panel mode="waterfall-tall">  
-        <paper-toolbar id="mainToolbar">
-          <paper-icon-button icon="menu"></paper-icon-button>
-          <div class="middle paper-font-display2 ">Polymer HTML5 Blog</div>
-         </paper-toolbar> 
-        <div class="container" ng-view></div>
-     </paper-header-panel>
-  </body>
 </html>

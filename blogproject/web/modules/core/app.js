@@ -12,19 +12,19 @@ angular.module( 'polymerblog', [
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',
-      templateUrl: 'home/home.html',
+      templateUrl: 'modules/home/home.html',
       pageTitle: 'Homepage',
       requiresLogin: true
     })
     .when( '/posts', {
       controller: 'PostsCtrl',
-      templateUrl: 'posts/posts.html',
+      templateUrl: 'modules/posts/posts.html',
       pageTitle: 'Posts',
       requiresLogin: true
     })
     .when( '/login', {
       controller: 'LoginCtrl',
-      templateUrl: 'login/login.html',
+      templateUrl: 'modules/login/login.html',
       pageTitle: 'Login'
     });
 
