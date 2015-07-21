@@ -1,0 +1,39 @@
+{
+  "name": "Polymer Blog",
+  "version": "0.0.0",
+  "authors": [
+    "beneditobatista <benedito_batista@hotmail.com>",
+    "fernandorych <fernando.rych@gmail.com>"
+  ],
+  "description": "Esqueleto do Projeto",
+  "main": "index.html",
+  "keywords": [
+    "blog",
+    "html5",
+    "studyGroup",
+    "GDG",
+    "GDGSP",
+    "polymer",
+    "firebase",
+    "AngularJS",
+    "Auth0",
+    "Lavish",
+    "Bootstrap",
+    "font-awesome"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "Polymer/polymer#1.0.0",
+    "paper-toolbar": "PolymerElements/paper-toolbar#1.0.0",
+    "paper-material": "PolymerElements/paper-material#1.0.0",
+    "paper-header-panel": "PolymerElements/paper-header-panel#1.0.0",
+    "firebase-element": "GoogleWebComponents/firebase-element#1.0.0"
+  }
+}
