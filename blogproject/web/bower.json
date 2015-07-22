@@ -34,6 +34,11 @@
     "paper-toolbar": "PolymerElements/paper-toolbar#1.0.0",
     "paper-material": "PolymerElements/paper-material#1.0.0",
     "paper-header-panel": "PolymerElements/paper-header-panel#1.0.0",
-    "firebase-element": "GoogleWebComponents/firebase-element#1.0.0"
+    "firebase-element": "GoogleWebComponents/firebase-element#1.0.0",
+    "bootstrap": "~3.3.5",
+    "font-awesome": "~4.3.0",
+    "angular": "~1.4.2",
+    "angular-cookies": "~1.4.2",
+    "angular-route": "~1.2.28"
   }
 }
