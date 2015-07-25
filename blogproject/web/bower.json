@@ -34,6 +34,7 @@
     "paper-toolbar": "PolymerElements/paper-toolbar#1.0.0",
     "paper-material": "PolymerElements/paper-material#1.0.0",
     "paper-header-panel": "PolymerElements/paper-header-panel#1.0.0",
-    "firebase-element": "GoogleWebComponents/firebase-element#1.0.0"
+    "firebase-element": "GoogleWebComponents/firebase-element#1.0.0",
+    "angular-translate": "~2.7.2"
   }
 }
