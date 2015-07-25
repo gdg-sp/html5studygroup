@@ -46,23 +46,23 @@ input[type=checkbox]:focus + label:before {
   border: 0;
   background-color: #16214D;
   color: white;
+}
 
-  &:hover{
-    background-color: #44C7F4;
-  }
+.btn:hover{
+  background-color: #44C7F4;
+}
 
-  &:focus{
-    outline: none !important;
-  }
+.btn:focus{
+  outline: none !important;
+}
 
-  &.btn-lg{
-    padding: 20px 30px;
-  }
+.btn.btn-lg{
+  padding: 20px 30px;
+}
 
-  &:disabled{
-    background-color: #333;
-    color: #666;
-  }
+.btn:disabled{
+  background-color: #333;
+  color: #666;
 }
 
 h1,h2,h3{
