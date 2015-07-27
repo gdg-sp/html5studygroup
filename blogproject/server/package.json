@@ -6,6 +6,7 @@
   "author": "Martin Gontovnikas",
   "license": "MIT",
   "dependencies": {
+    "chai": "^3.2.0",
     "cors": "^2.3.1",
     "dotenv": "^0.2.8",
     "express": "~3.3.8",
@@ -13,5 +14,9 @@
   },
   "engines": {
     "node": "0.10.x"
+  },
+  "devDependencies": {
+    "jsonwebtoken": "^5.0.4",
+    "supertest": "^1.0.1"
   }
 }
