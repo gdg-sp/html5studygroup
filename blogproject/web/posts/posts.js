@@ -10,7 +10,7 @@ angular.module('polymerblog.posts', [
     });
     $translateProvider.translations('en', {
       posts: {
-        nickname: 'View posts with'
+        nickname: 'Viewing posts as'
       }
     });
 
