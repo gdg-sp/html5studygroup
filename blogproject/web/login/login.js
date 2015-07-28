@@ -17,9 +17,6 @@ angular.module('polymerblog.login', [
         error: 'There was an error log, see the console.'
       }
     });
-
-    $translateProvider.useSanitizeValueStrategy(null);
-    $translateProvider.preferredLanguage('pt-br');
   })
   .controller('LoginCtrl', function HomeController($scope, auth, $location, store, $filter) {
 

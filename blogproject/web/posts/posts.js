@@ -13,9 +13,6 @@ angular.module('polymerblog.posts', [
         nickname: 'Viewing posts as'
       }
     });
-
-    $translateProvider.useSanitizeValueStrategy(null);
-    $translateProvider.preferredLanguage('pt-br');
   })
   .controller('PostsCtrl', function PostsController($scope, auth, $http, $location, store) {
     $scope.auth = auth;

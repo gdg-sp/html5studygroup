@@ -5,22 +5,23 @@ angular.module( 'polymerblog', [
   'polymerblog.login',
   'polymerblog.posts',
   'angular-storage',
-  'angular-jwt'
+  'angular-jwt',
+  'pascalprecht.translate'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
-  jwtInterceptorProvider) {
+  jwtInterceptorProvider, $translateProvider) {
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',
       templateUrl: 'home/home.html',
       pageTitle: 'Homepage',
-      requiresLogin: true
+      requiresLogin: false
     })
     .when( '/posts', {
       controller: 'PostsCtrl',
       templateUrl: 'posts/posts.html',
       pageTitle: 'Posts',
-      requiresLogin: true
+      requiresLogin: false
     })
     .when( '/login', {
       controller: 'LoginCtrl',
@@ -43,6 +44,9 @@ angular.module( 'polymerblog', [
   // NOTE: in case you are calling APIs which expect a token signed with a different secret, you might
   // want to check the delegation-token example
   $httpProvider.interceptors.push('jwtInterceptor');
+
+  $translateProvider.useSanitizeValueStrategy(null);
+  $translateProvider.preferredLanguage('en');
 }).run(function($rootScope, auth, store, jwtHelper, $location) {
   $rootScope.$on('$locationChangeStart', function() {
     if (!auth.isAuthenticated) {

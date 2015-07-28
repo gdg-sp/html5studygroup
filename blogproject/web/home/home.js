@@ -21,9 +21,6 @@ angular.module('polymerblog.home', [
         viewPosts: 'View posts'
       }
     });
-
-    $translateProvider.useSanitizeValueStrategy(null);
-    $translateProvider.preferredLanguage('pt-br');
   })
   .controller('HomeCtrl', function HomeController($scope, auth, $http, $location, store, $filter) {
 
