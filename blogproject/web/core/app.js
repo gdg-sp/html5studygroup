@@ -15,13 +15,13 @@ angular.module( 'polymerblog', [
       controller: 'HomeCtrl',
       templateUrl: 'home/home.html',
       pageTitle: 'Homepage',
-      requiresLogin: false
+      requiresLogin: true
     })
     .when( '/posts', {
       controller: 'PostsCtrl',
       templateUrl: 'posts/posts.html',
       pageTitle: 'Posts',
-      requiresLogin: false
+      requiresLogin: true
     })
     .when( '/login', {
       controller: 'LoginCtrl',
