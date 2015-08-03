@@ -15,7 +15,7 @@ paper-toolbar {
   margin-bottom: 1.5em;
 }
 
-  paper-material {
+  post-card paper-material {
     border-radius: 2px;
     height: 100%;
     padding: 16px 0 16px 0;
@@ -23,6 +23,18 @@ paper-toolbar {
     margin: 16px auto;
     background: white;
   }
+
+paper-fab {
+  position:fixed;
+  right: 24px;
+  bottom: 24px;
+}
+
+paper-dialog.size-position {
+  width: 300px;
+  height: 300px;
+}
+
 #mainToolbar .middle {
     margin-left: 48px;
   }
@@ -32,4 +44,8 @@ paper-toolbar {
     padding-bottom: 0;
     margin-left: 48px;
   }
-  
+
+paper-dialog-scrollable{
+    -webkit-overflow-scrolling:touch;
+        overflow:none;;
+  }

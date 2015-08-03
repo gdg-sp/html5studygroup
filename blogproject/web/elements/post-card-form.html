@@ -1,0 +1,46 @@
+<link rel="import" href="../bower_components/firebase-element/firebase-collection.html">
+<link rel="import" href="../bower_components/paper-input/paper-input.html">
+<link rel="import" href="../bower_components/paper-input/paper-textarea.html">
+<link rel="import" href="../bower_components/paper-button/paper-button.html">
+<dom-module id="post-card-form">
+
+  <style>
+    paper-material {
+      border-radius: 2px;
+      height: 100%;
+      padding: 16px 0 16px 0;
+      width: calc(98.66% - 16px);
+      margin: 16px auto;
+      background: white;
+    }
+
+    .fields {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+
+    .button{
+      margin-left: auto;
+      margin-right: 24px;
+    }
+
+  </style>
+
+  <template>
+    <firebase-collection id="base" location="https://html5-blog.firebaseio.com/" data="{{post}}"></firebase-collection>
+    <paper-material elevation="1">
+      <div class="fields">
+      <paper-input label="Titulo" id="titulo-post" name="titulo-post"></paper-input>
+      <paper-textarea id="conteudo-post" name="conteudo-post" label="Artigo, somente texto!"></paper-textarea>
+      </div>
+    </paper-material>
+  </template>
+
+  <script>
+    //registro do elemento
+    Polymer({
+      is: "post-card-form"
+    });
+  </script>
+
+</dom-module>
