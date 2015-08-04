@@ -12,4 +12,6 @@ angular.module( 'polymerblog.posts', [
     $location.path('/login');
   }
 
+
+
 });
