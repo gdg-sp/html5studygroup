@@ -88,7 +88,7 @@ function save_post_click() {
 
      var post = base.add({
        title: document.getElementById('titulo-post').value,
-       author: 'Benedito',
+       author: JSON.parse(localStorage.getItem('profile')).name,
        post: document.getElementById('conteudo-post').value,
        timestamp: new Date().getTime()
      });
