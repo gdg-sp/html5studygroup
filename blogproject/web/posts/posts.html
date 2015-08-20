@@ -1,7 +1,14 @@
-<div class="posts">
-  <h2>Vendo posts como {{auth.profile.nickname}}</h2>
-  <button class="btn-sm btn-warning" ng-click="logout()">Logout</button>
-  <post-list></post-list>
-  <paper-fab icon="create"  id="add_post_button" onclick="add_post_click();"</paper-fab>
+<div layout="row" class="posts">
+    <div class="content-wraper">
+        <post-list></post-list>
+    </div>
+
+    <div class="sidebar">
+        <h2>Vendo posts como {{auth.profile.nickname}}</h2>
+        <md-button  ng-click="callApi()" class="md-raised">Fazer chamadda autenticada</md-button>
+        <md-button  ng-click="redirectPosts()" class="md-raised md-primary">Ver Posts</md-button>
+        <md-button  ng-click="logout()" class="md-raised">Logout</md-button>
+        <paper-fab icon="create"  id="add_post_button" onclick="add_post_click();"</paper-fab>
+    </div>
 
 </div>

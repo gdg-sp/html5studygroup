@@ -1,7 +1,5 @@
 body{
   font-family: "proxima-nova",sans-serif;
-  text-align: center;
-  font-size: 300%;
   font-weight: 100;
 }
 
@@ -39,7 +37,7 @@ input[type=checkbox]:focus + label:before {
   outline: 0;
 }
 
-.btn{
+/*.btn{
   font-size: 140%;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -64,9 +62,40 @@ input[type=checkbox]:focus + label:before {
     color: #666;
   }
 }
-
+*/
 h1,h2,h3{
   font-weight: 100;
+  margin: 0;
+}
+.post-card > div{
+    padding: 0 0 0 10px;
+}
+
+.post-card.card-title{
+    border-bottom: 1px dotted #ddd;
+    margin-bottom: 0.3em;
+}
+.post-card.card-title h2{
+    font-size: 2em;
+    font-weight: normal;
+}
+.post-card.card-author h3{
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.post-card.card-post{
+
+}
+.card-post.post-card p {
+    font-size: 1.7em;
+    font-weight: normal;
+}
+.sidebar{
+    padding: 150px 0 0 0;
+}
+.cover {
+  margin: 60px;
 }
 
 #logo img{
