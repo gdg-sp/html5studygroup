@@ -40,9 +40,19 @@ gulp.task('html', function () {
   gulp.src('./web/*.html')
     .pipe(connect.reload());
 });
+gulp.task('css', function () {
+  gulp.src('./web/*.css')
+    .pipe(connect.reload());
+});
+gulp.task('js', function () {
+  gulp.src('./web/*.js')
+    .pipe(connect.reload());
+});
 
 gulp.task('watch', function () {
-  gulp.watch(['./web/*.html'], ['html']);
+  gulp.watch(['./web/**/*.html'], ['html']);
+  gulp.watch(['./web/**/*.css'], ['css']);
+  gulp.watch(['./web/**/*.js'], ['js']);
 });
 
 
