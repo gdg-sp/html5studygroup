@@ -1,52 +1,47 @@
-var
-  gulp = require('gulp'),
+var gulp = require('gulp'),
+  url = require('url'),
   nodemon = require('nodemon'),
-  browserSync = require('browser-sync').create(),
-  connect = require('gulp-connect');
+  proxy = require('proxy-middleware'),
+  browserSync = require('browser-sync').create();
 
+gulp.task('start-server', function(cb) {
 
-gulp.task('say_hello', function(){
-  console.log("hello world");
-});
+  var started = false;
 
-
-gulp.task('start-server', function () {
   return nodemon({
-    script: 'server/server.js'
-  //, ext: 'js html'
-  , env: { 'NODE_ENV': 'development' }
-  })
-});
-
-gulp.task('start-client', function() {
-  connect.server({
-    root: 'web',
-    port: 9000,
-    livereload: true
-  });
-});
-
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        proxy: "localhost:9000",
-        port: 4000,
-        ui: {
-          port: 4001
-        }
+      script: 'server/server.js',
+      env: { 'NODE_ENV': 'development' }
+    })
+    .on('start', function() {
+      if (!started) {
+        cb();
+        started = true;
+      }
+    })
+    .on('restart', function() {
+      console.log('restarted!');
     });
 });
 
-gulp.task('html', function () {
-  gulp.src('./web/*.html')
-    .pipe(connect.reload());
+gulp.task('start-client', ['start-server'], function() {
+
+  var proxyServer = url.parse('http://localhost:3001');
+  proxyServer.route = '/api';
+
+  browserSync.init({
+    port: 4000,
+    ui: {
+      port: 4001
+    },
+    server: {
+      baseDir: './web',
+      middleware: [proxy(proxyServer)]
+    }
+  });
+
+  gulp.watch(['./web/**/*.html'], browserSync.reload);
+  gulp.watch(['./web/**/*.js'], browserSync.reload);
+  gulp.watch(['./web/**/*.css'], browserSync.reload);
 });
 
-gulp.task('watch', function () {
-  gulp.watch(['./web/*.html'], ['html']);
-});
-
-
-gulp.task("serve", ["start-client", "start-server", "browser-sync"], function(){return});
-
-
-gulp.task('default', ["say_hello", "serve", "watch"], function() {return});
+gulp.task('default', ['start-client']);
