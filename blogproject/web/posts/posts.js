@@ -1,8 +1,21 @@
 angular.module( 'polymerblog.posts', [
-'auth0'
+	'auth0',
+	'pascalprecht.translate'
 ])
-.controller( 'PostsCtrl', function PostsController( $scope, auth, $http, $location, store ) {
+.config(function ($translateProvider) {
+  $translateProvider.translations('pt-br', {
+    posts: {
+      viewPosts: 'Vendo posts como'
+    }
+  });
 
+  $translateProvider.translations('en', {
+    posts: {
+      viewPosts: 'Viewing posts as'
+    }
+  });
+})
+.controller( 'PostsCtrl', function PostsController( $scope, auth, $http, $location, store ) {
   $scope.auth = auth;
 
   $scope.logout = function() {
@@ -11,7 +24,4 @@ angular.module( 'polymerblog.posts', [
     store.remove('token');
     $location.path('/login');
   }
-
-
-
 });
