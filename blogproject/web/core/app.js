@@ -4,6 +4,7 @@ angular.module( 'polymerblog', [
   'polymerblog.home',
   'polymerblog.login',
   'polymerblog.posts',
+  'ngMaterial',
   'angular-storage',
   'angular-jwt'
 ])
@@ -67,4 +68,3 @@ angular.module( 'polymerblog', [
 })
 
 ;
-
