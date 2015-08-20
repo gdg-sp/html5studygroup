@@ -34,8 +34,8 @@
     <link rel="stylesheet" type="text/css" href="home/home.css">
     <link rel="stylesheet" type="text/css" href="login/login.css">
     <link rel="stylesheet" type="text/css" href="posts/posts.css">
-    <link rel="stylesheet" type="text/css" href="content/css/lavish.css">
     <link rel="stylesheet" type="text/css" href="content/css/polymerblog.css">
+
 
     <!-- CORE DO ANGULARJS E AUTH0 -->
     <script src="core/auth0-variables.js"></script>
@@ -55,13 +55,11 @@
   </head>
 
   <body class="fullbleed layout vertical">
-    <paper-header-panel mode="waterfall-tall">
-        <paper-toolbar id="mainToolbar">
-          <paper-icon-button icon="menu"></paper-icon-button>
-          <div class="middle paper-font-display2 ">Polymer HTML5 Blog</div>
-         </paper-toolbar>
-        <div class="container" ng-view></div>
+    <paper-header-panel mode="cover">
+        <paper-toolbar class="tall"></paper-toolbar>
+        <div class="cover" ng-view></div>
      </paper-header-panel>
+
      <paper-dialog id="add_post_dialog" modal>
        <paper-dialog-scrollable style="width: 600px; height: 600px; overflow:none">
        <post-card-form></post-card-form>
@@ -74,6 +72,7 @@
 
   </body>
 </html>
+
 <script>
 function add_post_click(){
 
@@ -85,7 +84,6 @@ function add_post_click(){
 
 function save_post_click() {
 
-
      var post = base.add({
        title: document.getElementById('titulo-post').value,
        author: JSON.parse(localStorage.getItem('profile')).name,
@@ -95,6 +93,5 @@ function save_post_click() {
 
 
  }
-
 
 </script>
