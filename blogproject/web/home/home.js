@@ -1,7 +1,29 @@
 angular.module( 'polymerblog.home', [
-'auth0'
+  'auth0',
+  'pascalprecht.translate'
 ])
-.controller( 'HomeCtrl', function HomeController( $scope, auth, $http, $location, store ) {
+.config(function ($translateProvider) {
+  $translateProvider.translations('pt-br', {
+    home: {
+      testServerSuccess: 'Sucesso ao consultar o server Node.js',
+      testServerError: 'Erro ao consultar o server, você está logado? O Server foi iniciado?',
+      wellcome: 'Bem-Vindo',
+      makeAuthCall: 'Fazer Chamada Autenticada',
+      viewPosts: 'Ver os Posts'
+    }
+  });
+
+  $translateProvider.translations('en', {
+    home: {
+      testServerSuccess: 'Success to query the server Node.js',
+      testServerError: 'Error to query the server, do you are logged? The server has started?',
+      wellcome: 'Wellcome',
+      makeAuthCall: 'Make Authenticated Call',
+      viewPosts: 'View Posts'
+    }
+  });
+})
+.controller( 'HomeCtrl', function HomeController( $scope, auth, $http, $location, store, $filter) {
 
   $scope.auth = auth;
 
@@ -11,10 +33,10 @@ angular.module( 'polymerblog.home', [
       url: 'http://localhost:3001/secured/ping',
       method: 'GET'
     }).then(function() {
-      alert("Sucesso ao consultar o server Node.js");
+      alert($filter('translate')('home.testServerSuccess'));
     }, function(response) {
       if (response.status == 0) {
-        alert("Erro ao consultar o server, você está logado? O Server foi iniciado?");
+        alert($filter('translate')('home.testServerError'));
       }
       else {
         alert(response.data);
@@ -28,7 +50,7 @@ angular.module( 'polymerblog.home', [
     store.remove('token');
     $location.path('/login');
   }
-  
+
   $scope.redirectPosts = function() {
     $location.path('/posts');
   }

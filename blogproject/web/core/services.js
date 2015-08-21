@@ -24,7 +24,7 @@ var Post = function ($resource, $http) {
   return resource;
 };
 
-AuthService = function(auth, $location, store){
+AuthService = function(auth, $location, $filter, store){
 
     var all = {
         auth: auth,
@@ -35,7 +35,7 @@ AuthService = function(auth, $location, store){
                 store.set('token', token);
                 $location.path("/");
             }, function(error) {
-                console.log("Houve um erro ao logar, veja o console.", error);
+                console.log($filter('translate')('login.loginFail'), error);
             });
 
         },
@@ -54,5 +54,5 @@ AuthService = function(auth, $location, store){
 
 angular.module('polymerblog.services', ['auth0'])
     // .factory('Post', ['$resource', '$timeout', '$q', '$http', Post])
-    .service('AuthService', ['auth', '$location', 'store',  AuthService])
+    .service('AuthService', ['auth', '$location', '$filter', 'store',  AuthService])
     ;

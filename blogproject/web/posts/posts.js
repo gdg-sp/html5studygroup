@@ -1,9 +1,22 @@
-angular.module( 'polymerblog.posts', [])
-    .controller( 'PostsCtrl', function PostsController( $scope, AuthService ) {
+angular.module( 'polymerblog.posts', [
+	'auth0',
+	'pascalprecht.translate'
+])
+.config(function ($translateProvider) {
+  $translateProvider.translations('pt-br', {
+    posts: {
+      viewPosts: 'Vendo posts como'
+    }
+  });
 
-        $scope.auth = AuthService.auth;
+  $translateProvider.translations('en', {
+    posts: {
+      viewPosts: 'Viewing posts as'
+    }
+  });
+})
+.controller( 'PostsCtrl', function PostsController( $scope, auth, $http, $location, store, AuthService ) {
+	$scope.auth = AuthService.auth;
 
-        $scope.logout = AuthService.logout;
-
-    })
-;
+	$scope.logout = AuthService.logout;
+});

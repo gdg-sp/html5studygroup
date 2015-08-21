@@ -7,10 +7,15 @@ angular.module( 'polymerblog', [
   'polymerblog.services',
   'ngMaterial',
   'angular-storage',
-  'angular-jwt'
+  'angular-jwt',
+  'pascalprecht.translate'
 ])
 .config( function myAppConfig ( $routeProvider, authProvider, $httpProvider, $locationProvider,
-  jwtInterceptorProvider) {
+  jwtInterceptorProvider, $translateProvider) {
+
+  $translateProvider.useSanitizeValueStrategy(null);
+  $translateProvider.preferredLanguage('pt-br');
+
   $routeProvider
     .when( '/', {
       controller: 'HomeCtrl',

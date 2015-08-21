@@ -3,11 +3,14 @@
     <div class="login-box auth0-box">
         <div layout="row">
             <div class="content-wraper">
+                <h2>{{'login.wellcome' | translate}}</h2>
+                <br/>
+                <br/>
                 <post-list></post-list>
             </div>
 
             <div class="sidebar">
-                <md-button  ng-click="login()" class="md-raised md-primary fab-button">Login</md-button>
+                <md-button  ng-click="login()" class="md-raised md-primary fab-button">{{'login.makeLogin' | translate}}</md-button>
             </div>
 
         </div>
