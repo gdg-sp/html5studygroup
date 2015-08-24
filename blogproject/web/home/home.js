@@ -50,7 +50,7 @@ angular.module( 'polymerblog.home', [
     store.remove('token');
     $location.path('/login');
   }
-  
+
   $scope.redirectPosts = function() {
     $location.path('/posts');
   }

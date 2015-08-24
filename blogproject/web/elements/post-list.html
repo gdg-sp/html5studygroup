@@ -1,22 +1,23 @@
 <dom-module id="post-list">
-  <style>
-  </style>
-  <template>
-    <firebase-collection data="{{data}}"
-                      location="https://html5-blog.firebaseio.com/">
-    </firebase-collection>
 
-    <template is="dom-repeat" items="{{data}}">
-      <post-card>
-        <h2>{{item.title}}</h2>
-        <h3>{{item.author}}</h3>
-        <p>{{item.post}}</p>
-      </post-card>  
+    <template>
+        <firebase-collection data="{{data}}" location="https://html5-blog.firebaseio.com/"></firebase-collection>
+
+        <template is="dom-repeat" items="{{data}}">
+            <post-card>
+                <h2>{{item.title}}</h2>
+                <h3>{{item.author}}</h3>
+                <p>{{item.post}}</p>
+            </post-card>
+        </template>
+
     </template>
-  </template>  
+
   <script>
     Polymer({
-      is: "post-list"
+        is: "post-list",
+        reflectToAttribute: true
     });
   </script>
+
 </dom-module>

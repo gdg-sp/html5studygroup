@@ -1,7 +1,13 @@
-<div class="home">
-  <h1 id="logo"><img src="content/images/auth0_logo_final_blue_RGB.png" /></h1>
-  <h2>{{'home.wellcome' | translate}} {{auth.profile.nickname}}</h2>
-  <button class="btn btn-lg btn-primary" ng-click="callApi()">{{'home.makeAuthCall' | translate}}</button> <br />
-  <button class="btn btn-lg btn-primary" ng-click="redirectPosts()">{{'home.viewPosts' | translate}}</button>
-  <button class="btn-lg btn-warning" ng-click="logout()">Logout</button>
-</div>
+<div layout="row" class="home">
+    <div class="content-wraper">
+        <h2>{{'home.wellcome' | translate}} {{auth.profile.nickname}}</h2>
+        <br/>
+        <br/>
+        <post-list></post-list>
+    </div>
+
+    <div class="sidebar">
+        <md-button  ng-click="callApi()" class="md-raised">{{'home.makeAuthCall' | translate}}</md-button>
+        <md-button  ng-click="redirectPosts()" class="md-raised md-primary">{{'home.viewPosts' | translate}}</md-button>
+        <md-button  ng-click="logout()" class="md-raised">Logout</md-button>
+    </div>
